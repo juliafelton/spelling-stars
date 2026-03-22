@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spelling Stars ⭐</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN SCREEN
+  ════════════════════════════════════════════════ -->
+  <div id="screen-main" class="screen active">
+    <header class="main-header">
+      <h1>⭐ Spelling Stars ⭐</h1>
+      <button id="btn-parent" class="btn-corner">👨‍👩‍👧 Parent</button>
+    </header>
+
+    <div class="progress-section">
+      <p id="progress-text" class="progress-text">0 of 10 words mastered!</p>
+      <div id="progress-bar-track">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
+
+    <div id="word-list" class="word-list"></div>
+
+    <div class="mode-buttons">
+      <button id="btn-hear-type" class="btn-mode btn-blue">🔊 Hear &amp; Type</button>
+      <button id="btn-see-type"  class="btn-mode btn-green">👀 See &amp; Type</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       HEAR & TYPE SCREEN
+  ════════════════════════════════════════════════ -->
+  <div id="screen-hear" class="screen">
+    <header class="sub-header">
+      <button id="back-from-hear" class="btn-back">← Back</button>
+      <h2>🔊 Hear &amp; Type</h2>
+      <div class="spacer"></div>
+    </header>
+
+    <div class="practice-card">
+      <p id="hear-progress" class="word-counter">Word 1 of 10</p>
+
+      <button id="btn-say" class="btn-say">🔊 Say the Word!</button>
+      <p class="hint-text">Press the button to hear the word, then type it below.</p>
+
+      <input
+        type="text"
+        id="hear-input"
+        class="spell-input"
+        placeholder="Type the word here…"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+      />
+      <button id="btn-hear-submit" class="btn-submit btn-green">Check ✓</button>
+
+      <div id="hear-feedback" class="feedback" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SEE & TYPE SCREEN
+  ════════════════════════════════════════════════ -->
+  <div id="screen-see" class="screen">
+    <header class="sub-header">
+      <button id="back-from-see" class="btn-back">← Back</button>
+      <h2>👀 See &amp; Type</h2>
+      <div class="spacer"></div>
+    </header>
+
+    <div class="practice-card">
+      <p id="see-progress" class="word-counter">Word 1 of 10</p>
+
+      <div id="word-display" class="word-display">
+        <span id="word-text"></span>
+      </div>
+      <div id="see-countdown" class="countdown" aria-live="polite"></div>
+
+      <input
+        type="text"
+        id="see-input"
+        class="spell-input"
+        placeholder="Type what you remember…"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+      />
+      <button id="btn-peek" class="btn-peek btn-yellow" hidden>👀 Show me again</button>
+
+      <button id="btn-see-submit" class="btn-submit btn-green">Check ✓</button>
+
+      <div id="see-feedback" class="feedback" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       CELEBRATION SCREEN
+  ════════════════════════════════════════════════ -->
+  <div id="screen-celebration" class="screen">
+    <div class="celebration-card">
+      <div class="celebration-stars">🌟🌟🌟</div>
+      <h1 class="celebration-title">You Did It!</h1>
+      <p class="celebration-sub">All words mastered! Amazing work!</p>
+      <div class="celebration-stars" style="animation-delay:0.3s">🎉🎊🎉</div>
+      <button id="btn-celebration-home" class="btn-mode btn-blue" style="margin-top:32px">
+        🏠 Back to Home
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       PARENT SCREEN
+  ════════════════════════════════════════════════ -->
+  <div id="screen-parent" class="screen">
+    <header class="sub-header">
+      <button id="back-from-parent" class="btn-back">← Back</button>
+      <h2>👨‍👩‍👧 Parent View</h2>
+      <div class="spacer"></div>
+    </header>
+
+    <div class="parent-card">
+      <h3 class="section-title">📊 Word Progress</h3>
+      <div id="parent-progress-list" class="parent-progress-list"></div>
+
+      <div class="divider"></div>
+
+      <h3 class="section-title">📅 Session History</h3>
+      <div id="parent-session-history" class="session-history"></div>
+
+      <div class="divider"></div>
+
+      <h3 class="section-title">📝 Word List</h3>
+      <p class="parent-hint">
+        Type one word per line below. Saving a new list will reset all progress.
+      </p>
+      <textarea
+        id="parent-word-list"
+        class="word-textarea"
+        rows="12"
+        placeholder="cat&#10;dog&#10;house&#10;tree&#10;…"
+        spellcheck="false"
+      ></textarea>
+      <button id="btn-save-words" class="btn-mode btn-blue">💾 Save New Word List</button>
+
+      <div class="divider"></div>
+
+      <button id="btn-reset-progress" class="btn-mode btn-red">🔄 Reset Progress</button>
+    </div>
+  </div>
+
+  <!-- Confetti layer (fixed overlay, pointer-events: none) -->
+  <div id="confetti-layer" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

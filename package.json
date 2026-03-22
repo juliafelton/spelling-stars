@@ -1,0 +1,9 @@
+{
+  "name": "spelling-stars",
+  "version": "1.0.0",
+  "description": "A spelling practice web app for kids",
+  "scripts": {
+    "start": "npx serve .",
+    "dev":   "npx serve ."
+  }
+}

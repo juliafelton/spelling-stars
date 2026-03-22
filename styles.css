@@ -544,6 +544,63 @@ button:disabled {
   margin: 20px 0;
 }
 
+/* ── Minecraft Characters ───────────────────────────────────────────── */
+
+/* Pixel art needs crisp scaling — no blurry interpolation */
+.mc-char {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  shape-rendering: crispEdges;
+  width: 64px;
+  height: 64px;
+  animation: charBob 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Gentle bobbing animation */
+@keyframes charBob {
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Row of characters on the main screen */
+.char-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 24px;
+  margin: 8px 0 16px;
+}
+
+/* Larger characters for the celebration screen */
+.mc-char--large {
+  width: 88px;
+  height: 88px;
+  animation: charBounce 0.9s ease-in-out infinite alternate;
+}
+@keyframes charBounce {
+  from { transform: translateY(0)     rotate(-5deg); }
+  to   { transform: translateY(-14px) rotate(5deg);  }
+}
+
+.char-row--celebration {
+  margin: 20px 0;
+  gap: 28px;
+}
+
+/* Character inside a practice card */
+.mc-char--card {
+  width: 72px;
+  height: 72px;
+}
+
+/* Character in the sub-header (Parent view) */
+.mc-char--header {
+  width: 48px;
+  height: 48px;
+  animation: charBob 2.2s ease-in-out infinite;
+}
+
 /* ── Confetti Layer ─────────────────────────────────────────────────── */
 #confetti-layer {
   position: fixed;

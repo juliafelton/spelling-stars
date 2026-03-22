@@ -9,6 +9,87 @@
 <body>
 
   <!-- ═══════════════════════════════════════════════
+       MINECRAFT CHARACTER DEFINITIONS (hidden)
+       Defined once here, referenced anywhere with <use>
+  ════════════════════════════════════════════════ -->
+  <svg style="display:none" aria-hidden="true">
+    <defs>
+
+      <!-- Steve -->
+      <symbol id="char-steve" viewBox="0 0 8 8">
+        <!-- Hair -->
+        <rect width="8" height="2" fill="#7B4F2E"/>
+        <!-- Skin -->
+        <rect y="2" width="8" height="6" fill="#C68642"/>
+        <!-- Left eye -->
+        <rect x="1" y="3" width="2" height="2" fill="#6B8CBA"/>
+        <!-- Right eye -->
+        <rect x="5" y="3" width="2" height="2" fill="#6B8CBA"/>
+        <!-- Nose -->
+        <rect x="3" y="5" width="2" height="1" fill="#B07830"/>
+        <!-- Mouth -->
+        <rect x="2" y="6" width="4" height="1" fill="#8B5E3C"/>
+      </symbol>
+
+      <!-- Creeper -->
+      <symbol id="char-creeper" viewBox="0 0 8 8">
+        <!-- Face -->
+        <rect width="8" height="8" fill="#4CAF50"/>
+        <!-- Top shading -->
+        <rect width="8" height="1" fill="#388E3C"/>
+        <!-- Left eye -->
+        <rect x="1" y="2" width="2" height="2" fill="#1A1A1A"/>
+        <!-- Right eye -->
+        <rect x="5" y="2" width="2" height="2" fill="#1A1A1A"/>
+        <!-- Mouth centre top -->
+        <rect x="3" y="4" width="2" height="1" fill="#1A1A1A"/>
+        <!-- Mouth row -->
+        <rect x="1" y="5" width="6" height="1" fill="#1A1A1A"/>
+        <!-- Mouth bottom gaps -->
+        <rect x="2" y="6" width="1" height="1" fill="#1A1A1A"/>
+        <rect x="5" y="6" width="1" height="1" fill="#1A1A1A"/>
+      </symbol>
+
+      <!-- Pig -->
+      <symbol id="char-pig" viewBox="0 0 8 8">
+        <!-- Face -->
+        <rect width="8" height="8" fill="#F8BBD9"/>
+        <!-- Ears -->
+        <rect x="0" y="0" width="2" height="2" fill="#F48FB1"/>
+        <rect x="6" y="0" width="2" height="2" fill="#F48FB1"/>
+        <!-- Left eye -->
+        <rect x="1" y="2" width="2" height="2" fill="#1A1A1A"/>
+        <!-- Right eye -->
+        <rect x="5" y="2" width="2" height="2" fill="#1A1A1A"/>
+        <!-- Snout -->
+        <rect x="1" y="5" width="6" height="2" fill="#F48FB1"/>
+        <!-- Nostrils -->
+        <rect x="2" y="6" width="1" height="1" fill="#AD1457"/>
+        <rect x="5" y="6" width="1" height="1" fill="#AD1457"/>
+      </symbol>
+
+      <!-- Villager -->
+      <symbol id="char-villager" viewBox="0 0 8 8">
+        <!-- Hood -->
+        <rect width="8" height="2" fill="#5B3A1E"/>
+        <rect x="0" y="2" width="1" height="6" fill="#5B3A1E"/>
+        <rect x="7" y="2" width="1" height="6" fill="#5B3A1E"/>
+        <!-- Skin -->
+        <rect x="1" y="2" width="6" height="6" fill="#C68642"/>
+        <!-- Eyebrows -->
+        <rect x="1" y="2" width="2" height="1" fill="#7B4F2E"/>
+        <rect x="5" y="2" width="2" height="1" fill="#7B4F2E"/>
+        <!-- Eyes -->
+        <rect x="1" y="3" width="2" height="1" fill="#1A1A1A"/>
+        <rect x="5" y="3" width="2" height="1" fill="#1A1A1A"/>
+        <!-- Big nose -->
+        <rect x="3" y="4" width="2" height="2" fill="#A0522D"/>
+      </symbol>
+
+    </defs>
+  </svg>
+
+  <!-- ═══════════════════════════════════════════════
        MAIN SCREEN
   ════════════════════════════════════════════════ -->
   <div id="screen-main" class="screen active">
@@ -25,6 +106,13 @@
     </div>
 
     <div id="word-list" class="word-list"></div>
+
+    <!-- Characters row -->
+    <div class="char-row">
+      <svg class="mc-char" aria-label="Steve"><use href="#char-steve"/></svg>
+      <svg class="mc-char" aria-label="Creeper" style="animation-delay:0.4s"><use href="#char-creeper"/></svg>
+      <svg class="mc-char" aria-label="Pig" style="animation-delay:0.8s"><use href="#char-pig"/></svg>
+    </div>
 
     <div class="mode-buttons">
       <button id="btn-hear-type" class="btn-mode btn-blue">🔊 Hear &amp; Type</button>
@@ -44,6 +132,9 @@
 
     <div class="practice-card">
       <p id="hear-progress" class="word-counter">Word 1 of 10</p>
+
+      <!-- Creeper mascot -->
+      <svg class="mc-char mc-char--card" aria-label="Creeper"><use href="#char-creeper"/></svg>
 
       <button id="btn-say" class="btn-say">🔊 Say the Word!</button>
       <p class="hint-text">Press the button to hear the word, then type it below.</p>
@@ -77,6 +168,9 @@
     <div class="practice-card">
       <p id="see-progress" class="word-counter">Word 1 of 10</p>
 
+      <!-- Pig mascot -->
+      <svg class="mc-char mc-char--card" aria-label="Pig"><use href="#char-pig"/></svg>
+
       <div id="word-display" class="word-display">
         <span id="word-text"></span>
       </div>
@@ -108,6 +202,14 @@
       <div class="celebration-stars">🌟🌟🌟</div>
       <h1 class="celebration-title">You Did It!</h1>
       <p class="celebration-sub">All words mastered! Amazing work!</p>
+
+      <!-- Steve & Creeper celebrating -->
+      <div class="char-row char-row--celebration">
+        <svg class="mc-char mc-char--large" aria-label="Steve"><use href="#char-steve"/></svg>
+        <svg class="mc-char mc-char--large" aria-label="Creeper" style="animation-delay:0.3s"><use href="#char-creeper"/></svg>
+        <svg class="mc-char mc-char--large" aria-label="Pig" style="animation-delay:0.6s"><use href="#char-pig"/></svg>
+      </div>
+
       <div class="celebration-stars" style="animation-delay:0.3s">🎉🎊🎉</div>
       <button id="btn-celebration-home" class="btn-mode btn-blue" style="margin-top:32px">
         🏠 Back to Home
@@ -122,7 +224,7 @@
     <header class="sub-header">
       <button id="back-from-parent" class="btn-back">← Back</button>
       <h2>👨‍👩‍👧 Parent View</h2>
-      <div class="spacer"></div>
+      <svg class="mc-char mc-char--header" aria-label="Villager"><use href="#char-villager"/></svg>
     </header>
 
     <div class="parent-card">
